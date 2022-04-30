@@ -1,0 +1,40 @@
+$base-color:red;
+
+div.container-1 {
+    display: flex;
+    gap: 10px;
+
+    .box {
+        display: inline-flex;
+        border-radius: 10px;
+        width: 80px;
+        height: 100px;
+        padding: 10px;
+
+        span {
+            margin: auto;
+            text-align: center;
+        }
+    }
+}
+
+.box {
+    background-color: $base-color;
+}
+
+$i: 0;
+$amount: 5;
+
+@for $i from 1 through 4 {
+    .darken-#{$i} {
+        $current-color: darken($base-color, $amount);
+        background-color: $current-color;
+        color: invert($current-color);
+    }
+    .lighten-#{$i} {
+        $current-color: lighten($base-color, $amount);
+        background-color: $current-color;
+        color: invert($current-color);
+    }
+    $amount: $amount + 5;
+}
